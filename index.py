@@ -1,8 +1,7 @@
-
-
 #Variáveis DEFINE
 TURNS     = 2
-CALCNOTES = 2
+teste= 1
+Calcule = 1
 
 #Variáveis Globais
 opc        = ''
@@ -15,14 +14,11 @@ def InsertNotas():
     Menu()
 
 def Listanotas():
-    for x in range(0, TURNS):
-        print('\nO aluno de posição {} recebeu as notas {}º Nota: '.format(notes))
+    for x in range(0, teste):
+        print('\n As notas são : {}: '.format(notes))
     Menu()
 
-def Situacao():
-    for x in range(0, TURNS):
-        print('\n{}º Nota: '.format(notes))
-    Menu()
+
 #Menu
 def Menu():
     
@@ -48,7 +44,5 @@ def Header():
     print('-=' * 4, 'Gerenciamente de Notas', '-=' * 4)
 
 Menu()
-
-
 
 
