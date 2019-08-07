@@ -1,3 +1,4 @@
+
 #Variáveis DEFINE
 TURNS     = 2
 teste= 1
@@ -17,7 +18,16 @@ def Listanotas():
     for x in range(0, teste):
         print('\n As notas são : {}: '.format(notes))
     Menu()
-
+def situacao():
+    for x in range(0, TURNS):
+        if (result >= 7):
+            print ("foi aprovado")
+        elif(result< 3):
+            print ("na final")
+        else:
+            print ("reprovado")
+       
+    Menu()
 
 #Menu
 def Menu():
@@ -41,7 +51,7 @@ def Menu():
 def Header():
     print('\n')
     print('-=' * 20)
-    print('-=' * 4, 'Gerenciamente de Notas', '-=' * 4)
+    print('-=' * 4, 'Gerenciamento de Notas', '-=' * 4)
 
 Menu()
 
