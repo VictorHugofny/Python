@@ -1,8 +1,11 @@
-
 #Variáveis DEFINE
-TURNS     = 2
+quantidade = 0
 teste= 1
 Calcule = 1
+turma = list()
+alunos = dict()
+notas = list()
+imprimir=1
 
 #Variáveis Globais
 opc        = ''
@@ -10,31 +13,38 @@ validation = False
 notes = []
 
 def InsertNotas():
-    for x in range(0, TURNS):
-        notes.append(input('\nInforme a {}º Nota: '.format(x+1)))
-    Menu()
+        alunos.clear()
+        alunos['Nome'] = str(input('Nome do Aluno: '))
+        quantidade = int(input(f'Quantas avaliações feitas pelo {alunos["Nome"]}?\n>>> '))
+        notas.clear()
+        for x in range(0, quantidade):
+            notas.append(int(input(f'     Valor da {x + 1}º nota: ')))
+        alunos['Notas'] = notas[:]
+        alunos["Media"] = sum(notas)
+        alunos['Media'] =  alunos['Media'] / quantidade
 
-def Listanotas():
-    for x in range(0, teste):
-        print('\n As notas são : {}: '.format(notes))
-    Menu()
+        turma.append(alunos.copy())
+
+        Menu()
 def situacao():
+    for x in range(0, imprimir):
+        print (f"Bem vindo {notas[:]} sua nota é {alunos['Media']} ")
     for x in range(0, TURNS):
-        if (result >= 7):
+        if (media >= 7):
             print ("foi aprovado")
-        elif(result< 3):
+        elif(media< 3):
             print ("na final")
         else:
             print ("reprovado")
-       
+
     Menu()
 
 #Menu
 def Menu():
-    
+
+    print ("\n --- MENU DO ALUNO ---")
     print('\n[1] - Inserir Notas')
-    print('[2] - Listar Notas')
-    print('[3] - Visualizar Situação')
+    print('[2] - Visualizar Situação')
     print('[*] - Sair')
 
     opc = str(input('digite: '))
@@ -42,17 +52,7 @@ def Menu():
     if(opc == "1"):
         InsertNotas()
     elif(opc == "2"):
-        Listanotas()
-    elif(opc == '3'):
         Situacao()
     else:
-        return menu()
-
-def Header():
-    print('\n')
-    print('-=' * 20)
-    print('-=' * 4, 'Gerenciamento de Notas', '-=' * 4)
-
-Menu()
-
-
+        Menu()
+Menu() 
